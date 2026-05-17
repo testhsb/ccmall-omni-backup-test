@@ -25,6 +25,6 @@ resource "aws_instance" "ccmall_web" {
   EOF
 
   tags = {
-    Name = "ccmall-Web"
+    Name = "ccmall-Web-cicd-test" # cicd 테스트를 위해 이름 변경 후 다시 push
   }
 }
