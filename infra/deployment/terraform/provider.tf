@@ -16,6 +16,13 @@ terraform {
       source  = "tailscale/tailscale"
       version = "0.17.2"
     }
+
+    # --- cloudflare provider 추가
+    cloudflare = {
+      source  = "cloudflare/cloudflare"
+      version = "~> 4.0"
+    }
+
   }
   # terraform 상태관리 (CI/CD)
   backend "s3" {
@@ -36,4 +43,9 @@ provider "tailscale" {
 # 1. provider 설정
 provider "aws" {
   region = "ap-northeast-2" # 서울 리전
+}
+
+# --- cloudflare api 키는 일단 tfvars에 보관.
+provider "cloudflare" {
+  api_token = var.cloudflare_api_token
 }

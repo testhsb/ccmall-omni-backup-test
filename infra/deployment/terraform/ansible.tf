@@ -202,7 +202,9 @@ resource "terraform_data" "run_deploy_web_playbook" {
     aws_instance.ccmall_rec,        # Rec 서버 생성 완료 후
     local_file.ansible_inventory,   # inventory.yml 생성 완료 후
     local_file.ansible_cfg,         # ansible.cfg 생성 완료 후
-    terraform_data.bootstrap_user1  # bootstrap 완료 후
+    terraform_data.bootstrap_user1, # bootstrap 완료 후
+    cloudflare_record.ccmall_root,  # cloudflare dns 생성 후
+    time_sleep.wait_for_dns         # dns 전파시간 대기 후
   ]
 
 
