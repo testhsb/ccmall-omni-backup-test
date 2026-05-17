@@ -54,7 +54,7 @@ resource "local_file" "ansible_cfg" {
     [defaults]
     inventory = ${local.inventory_file}
     remote_user = user1
-    private_key_file = ${local.ansible_key_file}
+    private_key_file = ${local.ccmall_ssh_key_file}
     host_key_checking = False
     remote_tmp = ~/.ansible/tmp
     roles_path = ${local.deployment_roles_dir}:${local.monitoring_roles_dir}:${local.backup_roles_dir}:${local.recovery_roles_dir}
